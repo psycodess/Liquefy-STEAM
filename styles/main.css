@@ -1,0 +1,144 @@
+@import url("colors.css");
+
+/* 1) Global transparency override required by Steam CEF */
+.steamui_SteamUI_Check,
+.client_root_container,
+.library_AppDetailsMain_1p8qX {
+  background: transparent !important;
+}
+
+html,
+body,
+#root,
+._3xRRJfD2xy95i9NhJxLTp0,
+._2Dd4T78PcCTUVgOtDGFY5j,
+._2NsQDKIduzN7NL_UlRYkOR {
+  background: transparent !important;
+  color: var(--text-primary);
+}
+
+/* 2) Shared frosted panel base */
+:is(
+  ._3xRRJfD2xy95i9NhJxLTp0,
+  ._2Dd4T78PcCTUVgOtDGFY5j,
+  ._2NsQDKIduzN7NL_UlRYkOR,
+  ._1bGewp3m69Mwj0Mlv-26ze,
+  ._2sYIghGVXJr6tsQVvcryy8,
+  .library_LeftListSizableContainer_9sPoV,
+  .library_LibraryWindowDivider_276E6,
+  .library_RightColumn_2s4eh,
+  .library_AppDetailsTransitionGroup_2Ddwd,
+  .DialogContent,
+  .DialogBody,
+  .DialogHeader,
+  .DialogFooter,
+  .desktopcontrols_desktopcontrols_3fZn8
+) {
+  background: var(--glass-bg) !important;
+  background-image: var(--glass-highlight) !important;
+  border: var(--glass-border-soft) !important;
+  border-radius: var(--radius-md) !important;
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow);
+}
+
+/* 3) Navigation + sidebar depth */
+:is(
+  ._3x1HklzyDs4TEjACrRO2tB,
+  .library_NavHeader_1rDh5,
+  .library_FriendsButton_25YVD,
+  .library_LeftListSizableContainer_9sPoV,
+  ._2sYIghGVXJr6tsQVvcryy8
+) {
+  background: linear-gradient(
+      140deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.02) 35%,
+      rgba(255, 255, 255, 0.01) 100%
+    ),
+    var(--glass-bg-soft) !important;
+  border-right: var(--glass-border) !important;
+}
+
+/* 4) App details hero + content cards */
+:is(
+  .library_AppDetailsMain_1p8qX,
+  .library_AppDetailsHeader_2sm1R,
+  .library_AppDetailsPrimaryLinks_9lqpa,
+  .appdetailsplaysection_Glassy_3DeO9,
+  .appdetailsfriendssection_FriendsSection_2YF0L,
+  .appdetailsoverview_Glassy_2OOzY,
+  .appactivityday_PartnerEventMediumImageContainer_3M9v8,
+  .appactivityday_Event_UVeN0
+) {
+  background-color: var(--md-bg-1) !important;
+  background-image: var(--glass-highlight) !important;
+  border: var(--glass-border-soft) !important;
+  border-radius: var(--radius-lg) !important;
+  -webkit-backdrop-filter: var(--glass-blur-strong);
+  backdrop-filter: var(--glass-blur-strong);
+}
+
+/* 5) Inputs/search controls inspired by Liquify */
+:is(input, textarea, .DialogInput, .DialogTextInputBase, .DialogDropDown_CurrentDisplay) {
+  background: rgba(10, 12, 15, 0.35) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: var(--radius-pill) !important;
+  color: var(--text-primary) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+:is(input, textarea, .DialogInput, .DialogTextInputBase):focus {
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.22), 0 8px 24px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* 6) Buttons + chips */
+:is(.DialogButton, button, .library_Tab_3M6qv) {
+  background: linear-gradient(145deg, rgba(var(--accent-rgb), 0.32), rgba(var(--accent-rgb), 0.16)) !important;
+  border: 1px solid rgba(var(--accent-rgb), 0.38) !important;
+  border-radius: var(--radius-pill) !important;
+  color: var(--text-primary) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  backdrop-filter: blur(14px) saturate(150%);
+}
+
+:is(.DialogButton, button, .library_Tab_3M6qv):hover {
+  filter: brightness(1.1);
+  box-shadow: 0 10px 24px rgba(var(--accent-rgb), 0.26);
+}
+
+/* 7) Typography contrast tune */
+:is(.title-area, .DialogLabel, ._1n7Wloe5jZ6fSuvV18NNWI, .library_AppName_1IAMT) {
+  color: var(--text-primary) !important;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.35);
+}
+
+:is(.DialogDescription, ._2jLx7M0U6M6k2sN9fA5KV0, .library_RecentGamesSubText_2P6nQ) {
+  color: var(--text-secondary) !important;
+}
+
+/* 8) Optional always-on ambient layer */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 5% 10%, rgba(81, 142, 255, 0.16), transparent 38%),
+    radial-gradient(circle at 92% 82%, rgba(148, 96, 255, 0.13), transparent 41%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.04), transparent 58%);
+  mix-blend-mode: screen;
+  z-index: 0;
+}
+
+/* Keep app content above ambient layer */
+#root,
+.steamui_SteamUI_0,
+._3xRRJfD2xy95i9NhJxLTp0 {
+  position: relative;
+  z-index: 1;
+}
