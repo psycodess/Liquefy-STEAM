@@ -1,0 +1,12 @@
+{
+  "name": "Liquefy-STEAM",
+  "author": "Custom by Codex",
+  "version": "0.1.0",
+  "description": "Windows 11 glassmorphism Millennium theme inspired by Minimal Dark structure with Glasscord/Liquify aesthetics.",
+  "inject": {
+    "shared.css": [
+      "styles/colors.css",
+      "styles/main.css"
+    ]
+  }
+}
